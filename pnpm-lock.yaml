@@ -30,6 +30,12 @@ importers:
       '@antfu/utils':
         specifier: ^0.7.6
         version: 0.7.6
+      '@dprint/formatter':
+        specifier: ^0.2.0
+        version: 0.2.0
+      '@dprint/toml':
+        specifier: ^0.5.4
+        version: 0.5.4
       '@types/eslint':
         specifier: ^8.44.8
         version: 8.44.8
@@ -369,6 +375,14 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@dprint/formatter@0.2.0:
+    resolution: {integrity: sha512-E1q1JaOPeEUBhG//IUayqJQvNpqprZ0OCF8B/bIhUqSsMIp0Y74PgF8JPvDCrOdq43qiGUYAavVO8iCBHOoU/A==}
+    dev: true
+
+  /@dprint/toml@0.5.4:
+    resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
     dev: true
 
   /@es-joy/jsdoccomment@0.41.0:

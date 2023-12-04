@@ -1,19 +1,31 @@
 // @ts-check
 import antfu from '@antfu/eslint-config'
-import formatters from 'eslint-plugin-format'
+import format from 'eslint-plugin-format'
 
 export default antfu(
   {},
   {
     files: ['**/*.css'],
     languageOptions: {
-      parser: formatters.parserPlain,
+      parser: format.parserPlain,
     },
     plugins: {
-      formatters,
+      format,
     },
     rules: {
-      'formatters/prettier': ['error', { parser: 'css' }],
+      'format/prettier': ['error', { parser: 'css' }],
+    },
+  },
+  {
+    files: ['**/*.toml'],
+    languageOptions: {
+      parser: format.parserPlain,
+    },
+    plugins: {
+      format,
+    },
+    rules: {
+      'format/dprint': ['error', { language: 'toml' }],
     },
   },
 )

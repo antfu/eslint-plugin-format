@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.11.0",
-  "description": "_description_",
+  "description": "Format various languages with formatters in ESLint",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/antfu",
@@ -13,13 +13,25 @@
     "url": "git+https://github.com/antfu/eslint-plugin-format.git"
   },
   "bugs": "https://github.com/antfu/eslint-plugin-format/issues",
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "formatters",
+    "prettier",
+    "dprint"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./define-config-support": {
+      "types": "./dts/define-config-support.d.ts"
+    },
+    "./rule-options": {
+      "types": "./dts/rule-options.d.ts"
     }
   },
   "main": "./dist/index.mjs",
@@ -34,7 +46,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "dts",
+    "workers"
   ],
   "scripts": {
     "build": "unbuild",
@@ -51,6 +65,9 @@
     "eslint": "^8.40.0"
   },
   "dependencies": {
+    "@dprint/formatter": "^0.2.0",
+    "@dprint/markdown": "^0.16.3",
+    "@dprint/toml": "^0.5.4",
     "eslint-formatting-reporter": "^0.0.0",
     "eslint-parser-plain": "^0.1.0",
     "prettier": "^3.1.0",
