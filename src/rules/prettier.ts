@@ -36,7 +36,10 @@ export default {
     return {
       Program() {
         const sourceCode = context.sourceCode.text
-        const formatted = format(sourceCode, context.options[0] || {})
+        const formatted = format(sourceCode, {
+          filepath: context.filename,
+          ...(context.options[0] || {}),
+        })
 
         reportDifferences(context, sourceCode, formatted)
       },
