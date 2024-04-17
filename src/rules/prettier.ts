@@ -31,7 +31,7 @@ export default {
   },
   create(context) {
     if (!format)
-      format = createSyncFn(join(dirWorkers, 'prettier.cjs'))
+      format = createSyncFn(join(dirWorkers, 'prettier.cjs')) as any
 
     return {
       Program() {

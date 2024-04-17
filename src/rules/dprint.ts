@@ -34,7 +34,7 @@ export default {
   },
   create(context) {
     if (!format)
-      format = createSyncFn(join(dirWorkers, 'dprint.cjs'))
+      format = createSyncFn(join(dirWorkers, 'dprint.cjs')) as any
 
     return {
       Program() {

@@ -2,7 +2,7 @@
   "name": "eslint-plugin-format",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@9.0.1",
   "description": "Format various languages with formatters in ESLint",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -62,35 +62,35 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "eslint": "^8.40.0"
+    "eslint": "^8.40.0 || ^9.0.0"
   },
   "dependencies": {
-    "@dprint/formatter": "^0.2.0",
-    "@dprint/markdown": "^0.16.3",
-    "@dprint/toml": "^0.5.4",
+    "@dprint/formatter": "^0.2.1",
+    "@dprint/markdown": "^0.16.4",
+    "@dprint/toml": "^0.6.1",
     "eslint-formatting-reporter": "^0.0.0",
     "eslint-parser-plain": "^0.1.0",
-    "prettier": "^3.1.0",
-    "synckit": "^0.8.6"
+    "prettier": "^3.2.5",
+    "synckit": "^0.9.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.3.1",
+    "@antfu/eslint-config": "^2.14.0",
     "@antfu/ni": "^0.21.12",
-    "@antfu/utils": "^0.7.6",
-    "@types/eslint": "^8.44.8",
-    "@types/node": "^20.10.3",
-    "bumpp": "^9.2.0",
-    "eslint": "^8.55.0",
+    "@antfu/utils": "^0.7.7",
+    "@types/eslint": "^8.56.9",
+    "@types/node": "^20.12.7",
+    "bumpp": "^9.4.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-format": "workspace:*",
-    "esno": "^4.0.0",
-    "lint-staged": "^15.2.0",
-    "pnpm": "^8.11.0",
+    "esno": "^4.7.0",
+    "lint-staged": "^15.2.2",
+    "pnpm": "^9.0.1",
     "rimraf": "^5.0.5",
-    "simple-git-hooks": "^2.9.0",
-    "typescript": "^5.3.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
-    "vite": "^5.0.5",
-    "vitest": "^1.0.1"
+    "vite": "^5.2.9",
+    "vitest": "^1.5.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
