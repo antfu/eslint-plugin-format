@@ -39,9 +39,12 @@ export default {
     return {
       Program() {
         const sourceCode = context.sourceCode.text
-        const formatted = format(sourceCode, context.filename, context.options[0] || {})
+        try {
+          const formatted = format(sourceCode, context.filename, context.options[0] || {})
 
-        reportDifferences(context, sourceCode, formatted)
+          reportDifferences(context, sourceCode, formatted)
+        }
+        catch (error) {}
       },
     }
   },
