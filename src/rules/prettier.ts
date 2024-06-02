@@ -50,13 +50,14 @@ export default {
             end: { line: 1, column: 0 },
           }
 
-          const { message } = error as { message?: string }
-          const locationMatch = message?.match(/\((?<line>\d):(?<column>\d)\)/)
-          if (locationMatch?.groups) {
-            const { line, column } = locationMatch.groups
-            loc = {
-              start: { line: +line, column: +column },
-              end: { line: +line, column: +column },
+          if (error instanceof Error) {
+            const locationMatch = error.message.match(/\((?<line>\d):(?<column>\d)\)/)
+            if (locationMatch?.groups) {
+              const { line, column } = locationMatch.groups
+              loc = {
+                start: { line: +line, column: +column },
+                end: { line: +line, column: +column },
+              }
             }
           }
 
