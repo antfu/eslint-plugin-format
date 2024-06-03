@@ -1,5 +1,5 @@
 import { join } from 'node:path'
-import type { Rule } from 'eslint'
+import type { AST, Rule } from 'eslint'
 import { createSyncFn } from 'synckit'
 import type { Options } from 'prettier'
 import { messages, reportDifferences } from 'eslint-formatting-reporter'
@@ -44,27 +44,29 @@ export default {
 
           reportDifferences(context, sourceCode, formatted)
         }
-        catch (error) {
-          let loc = {
-            start: { line: 1, column: 0 },
-            end: { line: 1, column: 0 },
+        catch (err) {
+          if (!(err instanceof SyntaxError)) {
+            context.report({
+              loc: {
+                start: { line: 1, column: 0 },
+                end: { line: 1, column: 0 },
+              },
+              message: 'Failed to format the code',
+            })
+            return
           }
 
-          if (error instanceof Error) {
-            const locationMatch = error.message.match(/\((?<line>\d):(?<column>\d)\)/)
-            if (locationMatch?.groups) {
-              const { line, column } = locationMatch.groups
-              loc = {
-                start: { line: +line, column: +column },
-                end: { line: +line, column: +column },
-              }
-            }
-          }
+          let message = `Parsing error: ${err.message}`
 
-          context.report({
-            loc,
-            message: 'Failed to format the code',
-          })
+          const error = (err) as SyntaxError & { codeFrame: string, loc: AST.SourceLocation }
+
+          if (error.codeFrame)
+            message = message.replace(`\n${error.codeFrame}`, '')
+
+          if (error.loc)
+            message = message.replace(/ \(\d+:\d+\)$/, '')
+
+          context.report({ message, loc: error.loc })
         }
       },
     }
