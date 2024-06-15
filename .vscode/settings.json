@@ -36,6 +36,16 @@
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
   ]
 }

@@ -39,9 +39,20 @@ export default {
     return {
       Program() {
         const sourceCode = context.sourceCode.text
-        const formatted = format(sourceCode, context.filename, context.options[0] || {})
+        try {
+          const formatted = format(sourceCode, context.filename, context.options[0] || {})
 
-        reportDifferences(context, sourceCode, formatted)
+          reportDifferences(context, sourceCode, formatted)
+        }
+        catch (error) {
+          context.report({
+            loc: {
+              start: { line: 1, column: 0 },
+              end: { line: 1, column: 0 },
+            },
+            message: 'Failed to format the code',
+          })
+        }
       },
     }
   },
