@@ -15,7 +15,7 @@ async function loadBuffer(data) {
       return Buffer.from(base64, 'base64')
     }
     else if (data.match(/^[\w-]+:\/\//)) {
-      return fetch(data).then(r => r.buffer())
+      return fetch(data).then(r => r.arrayBuffer())
     }
     else {
       return fs.readFile(data)
