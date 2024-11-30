@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dprint/formatter':
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.3.0
+        version: 0.3.0
       '@dprint/markdown':
         specifier: ^0.17.8
         version: 0.17.8
@@ -245,8 +245,8 @@ packages:
   '@clack/prompts@0.8.2':
     resolution: {integrity: sha512-6b9Ab2UiZwJYA9iMyboYyW9yJvAO9V753ZhS+DHKEjZRKAxPPOb7MXXu84lsPFG+vZt6FRFniZ8rXi+zCIw4yQ==}
 
-  '@dprint/formatter@0.4.1':
-    resolution: {integrity: sha512-IB/GXdlMOvi0UhQQ9mcY15Fxcrc2JPadmo6tqefCNV0bptFq7YBpggzpqYXldBXDa04CbKJ+rDwO2eNRPE2+/g==}
+  '@dprint/formatter@0.3.0':
+    resolution: {integrity: sha512-N9fxCxbaBOrDkteSOzaCqwWjso5iAe+WJPsHC021JfHNj2ThInPNEF13ORDKta3llq5D1TlclODCvOvipH7bWQ==}
 
   '@dprint/markdown@0.17.8':
     resolution: {integrity: sha512-ukHFOg+RpG284aPdIg7iPrCYmMs3Dqy43S1ejybnwlJoFiW02b+6Bbr5cfZKFRYNP3dKGM86BqHEnMzBOyLvvA==}
@@ -3260,7 +3260,7 @@ snapshots:
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  '@dprint/formatter@0.4.1': {}
+  '@dprint/formatter@0.3.0': {}
 
   '@dprint/markdown@0.17.8': {}
 
