@@ -1,5 +1,5 @@
-const fs = require('node:fs/promises')
 const { Buffer } = require('node:buffer')
+const fs = require('node:fs/promises')
 const { runAsWorker } = require('synckit')
 
 let dprint
@@ -15,7 +15,7 @@ async function loadBuffer(data) {
       return Buffer.from(base64, 'base64')
     }
     else if (data.match(/^[\w-]+:\/\//)) {
-      return fetch(data).then(r => r.arrayBuffer())
+      return fetch(data).then(r => r.arrayBuffer?.())
     }
     else {
       return fs.readFile(data)

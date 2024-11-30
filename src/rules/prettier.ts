@@ -1,8 +1,8 @@
-import { join } from 'node:path'
 import type { AST, Rule } from 'eslint'
-import { createSyncFn } from 'synckit'
 import type { Options } from 'prettier'
+import { join } from 'node:path'
 import { messages, reportDifferences } from 'eslint-formatting-reporter'
+import { createSyncFn } from 'synckit'
 import { dirWorkers } from '../dir'
 
 let format: (code: string, options: Options) => string

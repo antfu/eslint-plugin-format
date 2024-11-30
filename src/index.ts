@@ -1,9 +1,9 @@
-import * as _parserPlain from 'eslint-parser-plain'
 import type { Linter } from 'eslint'
-import prettier from './rules/prettier'
+import * as _parserPlain from 'eslint-parser-plain'
 import dprint from './rules/dprint'
+import prettier from './rules/prettier'
 
-const parserPlain: Linter.ParserModule = {
+const parserPlain: Linter.Parser = {
   meta: {
     name: 'eslint-parser-plain',
   },

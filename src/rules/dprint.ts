@@ -1,9 +1,9 @@
-import { join } from 'node:path'
 import type { Rule } from 'eslint'
-import { createSyncFn } from 'synckit'
-import { messages, reportDifferences } from 'eslint-formatting-reporter'
-import { dirWorkers } from '../dir'
 import type { DprintOptions } from '../../dts/rule-options'
+import { join } from 'node:path'
+import { messages, reportDifferences } from 'eslint-formatting-reporter'
+import { createSyncFn } from 'synckit'
+import { dirWorkers } from '../dir'
 
 let format: (code: string, filename: string, options: DprintOptions) => string
 
@@ -45,12 +45,13 @@ export default {
           reportDifferences(context, sourceCode, formatted)
         }
         catch (error) {
+          console.error(error)
           context.report({
             loc: {
               start: { line: 1, column: 0 },
               end: { line: 1, column: 0 },
             },
-            message: 'Failed to format the code',
+            message: `Failed to format the code: ${error}`,
           })
         }
       },
