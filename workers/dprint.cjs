@@ -1,3 +1,4 @@
+// @ts-check
 const { Buffer } = require('node:buffer')
 const fs = require('node:fs/promises')
 const { runAsWorker } = require('synckit')

@@ -3,7 +3,7 @@ import * as parserPlain from 'eslint-parser-plain'
 import dprint from './rules/dprint'
 import prettier from './rules/prettier'
 
-interface ESLintPluginFormat extends ESLint.Plugin {
+export interface ESLintPluginFormat extends ESLint.Plugin {
   parserPlain: Linter.Parser
 }
 
