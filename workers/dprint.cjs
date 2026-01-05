@@ -46,5 +46,8 @@ runAsWorker(async (code, filename, options) => {
   const formatter = await promise
   const { lang: _, languageOptions = {}, ...rest } = options
   formatter.setConfig(rest, languageOptions)
-  return formatter.formatText(filename, code)
+  return formatter.formatText({
+    filePath: filename,
+    fileText: code,
+  })
 })
