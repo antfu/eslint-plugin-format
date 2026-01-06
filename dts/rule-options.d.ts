@@ -7,8 +7,6 @@ export interface RuleOptions {
 
 export { PrettierOptions }
 
-export interface DprintOptions {
-  language: string
-  languageOptions?: Record<string, unknown>
-  [x: string]: unknown
-}
+export type DprintOptions
+  = | { language: string, languageOptions?: Record<string, unknown>, [x: string]: unknown }
+    | { plugins: Array<{ plugin: string, options?: Record<string, unknown> }>, [x: string]: unknown }

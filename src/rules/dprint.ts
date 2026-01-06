@@ -26,6 +26,9 @@ export default {
           languageOptions: {
             type: 'object',
           },
+          plugins: {
+            type: 'array',
+          },
         },
         additionalProperties: true,
       },

@@ -54,6 +54,36 @@ export default [
       'format/dprint': ['error', { language: 'toml', languageOptions: { indentWidth: 2 } }],
     },
   },
+
+  // use dprint to format HTML and CSS in style tags
+  {
+    files: ['**/*.html'],
+    languageOptions: {
+      parser: format.parserPlain,
+    },
+    plugins: {
+      format,
+    },
+    rules: {
+      'format/dprint': ['error', {
+        plugins: [
+          {
+            plugin: 'node_modules/dprint-plugin-malva/plugin.wasm',
+            options: {},
+          },
+          {
+            plugin: 'node_modules/dprint-plugin-markup/plugin.wasm',
+            options: {
+              scriptIndent: true,
+              styleIndent: true,
+            },
+          },
+        ],
+        useTabs: false,
+        indentWidth: 2,
+      }],
+    },
+  },
 ]
 ```
 
@@ -74,9 +104,14 @@ Use dprint to format files.
 
 #### Options
 
+Either:
 - `language` (required) - the language to format, or can be a filepath or URL to the WASM binary. [Supported languages](https://dprint.dev/plugins/)
 - `languageOptions` - the options for the language
 - The rest options are passed as dprint's general options
+
+Or:
+- `plugins` (required) - Array of plugins, defined as an object containing `plugin` (same as `language` above) and `options`, which is the same as `languageOptions` above.
+- The rest of the options are passed as dprint's general options
 
 ## Sponsors
 
