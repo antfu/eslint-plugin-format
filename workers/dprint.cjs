@@ -1,6 +1,6 @@
-// @ts-check
 const { Buffer } = require('node:buffer')
 const fs = require('node:fs/promises')
+// @ts-check
 const { runAsWorker } = require('synckit')
 
 let dprint
@@ -38,16 +38,32 @@ runAsWorker(async (code, filename, options) => {
     dockerfile: '@dprint/dockerfile',
   }
 
-  const lang = builtInLangs[options.language] || options.language
-  const promise = cache.has(lang)
-    ? cache.get(lang)
-    : cache.set(lang, loadBuffer(lang).then(r => dprint.createFromBuffer(r))).get(lang)
+  if (options.language) {
+    const lang = builtInLangs[options.language] || options.language
+    const promise = cache.has(lang)
+      ? cache.get(lang)
+      : cache.set(lang, loadBuffer(lang).then(r => dprint.createFromBuffer(r))).get(lang)
 
-  const formatter = await promise
-  const { lang: _, languageOptions = {}, ...rest } = options
-  formatter.setConfig(rest, languageOptions)
-  return formatter.formatText({
-    filePath: filename,
-    fileText: code,
-  })
+    const formatter = await promise
+    const { lang: _, languageOptions = {}, ...rest } = options
+    formatter.setConfig(rest, languageOptions)
+    return formatter.formatText({
+      filePath: filename,
+      fileText: code,
+    })
+  }
+  else {
+    // TODO: context caching??
+    const { plugins, ...rest } = options
+    const context = dprint.createContext(rest)
+
+    for (const plugin of plugins) {
+      context.addPlugin(await loadBuffer(plugin.plugin), plugin.options || {})
+    }
+
+    return context.formatText({
+      filePath: filename,
+      fileText: code,
+    })
+  }
 })
