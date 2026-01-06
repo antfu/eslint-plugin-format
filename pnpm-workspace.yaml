@@ -1,8 +1,12 @@
+ignoreWorkspaceRootCheck: true
+
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
 packages:
   - playground
   - examples/*
-
-ignoreWorkspaceRootCheck: true
 
 onlyBuiltDependencies:
   - esbuild
