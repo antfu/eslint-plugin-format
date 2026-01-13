@@ -2,7 +2,7 @@
   "name": "eslint-plugin-format",
   "type": "module",
   "version": "1.2.0",
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.0",
   "description": "Format various languages with formatters in ESLint",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -75,22 +75,22 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.3",
-    "@antfu/ni": "^28.0.0",
+    "@antfu/ni": "^28.1.0",
     "@antfu/utils": "^9.3.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.7",
     "bumpp": "^10.3.2",
     "eslint": "^9.39.2",
     "eslint-plugin-format": "workspace:*",
     "esno": "^4.8.0",
     "lint-staged": "^16.2.7",
-    "pnpm": "^10.27.0",
+    "pnpm": "^10.28.0",
     "rimraf": "^6.1.2",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
-    "vite": "^7.3.0",
-    "vitest": "^4.0.16"
+    "vite": "^7.3.1",
+    "vitest": "^4.0.17"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
