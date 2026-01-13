@@ -70,6 +70,7 @@
     "@dprint/toml": "^0.7.0",
     "eslint-formatting-reporter": "^0.0.0",
     "eslint-parser-plain": "^0.1.1",
+    "ohash": "^2.0.11",
     "prettier": "^3.7.4",
     "synckit": "^0.11.11"
   },
