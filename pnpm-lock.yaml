@@ -23,6 +23,9 @@ importers:
       eslint-parser-plain:
         specifier: ^0.1.1
         version: 0.1.1
+      ohash:
+        specifier: ^2.0.11
+        version: 2.0.11
       prettier:
         specifier: ^3.7.4
         version: 3.7.4

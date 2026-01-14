@@ -1,10 +1,12 @@
 const { Buffer } = require('node:buffer')
 const fs = require('node:fs/promises')
+const { hash } = require('ohash')
 // @ts-check
 const { runAsWorker } = require('synckit')
 
 let dprint
 const cache = new Map()
+const context_cache = new Map()
 
 async function loadBuffer(data) {
   if (typeof data === 'string' && data.startsWith('@dprint/'))
@@ -53,13 +55,19 @@ runAsWorker(async (code, filename, options) => {
     })
   }
   else {
-    // TODO: context caching??
     const { plugins, ...rest } = options
-    const context = dprint.createContext(rest)
+    const options_hash = hash(options)
+    const context = context_cache.has(options_hash)
+      ? context_cache.get(options_hash)
+      : context_cache.set(options_hash, await (async () => {
+          const context = dprint.createContext(rest)
 
-    for (const plugin of plugins) {
-      context.addPlugin(await loadBuffer(plugin.plugin), plugin.options || {})
-    }
+          for (const plugin of plugins) {
+            context.addPlugin(await loadBuffer(plugin.plugin), plugin.options || {})
+          }
+
+          return context
+        })()).get(options_hash)
 
     return context.formatText({
       filePath: filename,
