@@ -34,7 +34,7 @@ export default {
       format = createSyncFn(join(dirWorkers, 'prettier.cjs')) as any
 
     return {
-      Program() {
+      [context.sourceCode.ast.type || 'Program']() {
         const sourceCode = context.sourceCode.text
         try {
           const formatted = format(sourceCode, {
