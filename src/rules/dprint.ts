@@ -21,7 +21,6 @@ export default {
         properties: {
           language: {
             type: 'string',
-            required: true,
           },
           languageOptions: {
             type: 'object',

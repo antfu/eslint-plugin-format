@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dprint rule - TOML formatting > format/dprint (toml) > invalid > Invalid #0: [foo]
+a=1 1`] = `
+"[foo]
+a = 1
+"
+`;
+
+exports[`dprint rule - TOML with language option > format/dprint (toml with options) > invalid > Invalid #0: [section]
+key="value" 1`] = `
+"[section]
+key = "value"
+"
+`;
+
+exports[`dprint rule - language options > format/dprint (language options) > invalid > Invalid #0: [foo]
+a=1 1`] = `
+"[foo]
+a = 1
+"
+`;
+
+exports[`dprint rule - markdown formatting > format/dprint (markdown) > invalid > Invalid #0: #Title   1`] = `
+"#Title
+"
+`;

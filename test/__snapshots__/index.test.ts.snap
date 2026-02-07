@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dprint rule - TOML formatting > format/dprint (toml) > invalid > Invalid #0: [foo]
+a=1 1`] = `
+"[foo]
+a = 1
+"
+`;
+
+exports[`dprint rule - TOML formatting > format/dprint (toml) > invalid > Invalid #1: [bar]
+x=2 1`] = `
+"[bar]
+x = 2
+"
+`;
+
+exports[`dprint rule - TOML with language option > format/dprint (toml with options) > invalid > Invalid #0: [section]
+key="value" 1`] = `
+"[section]
+key = "value"
+"
+`;
+
+exports[`dprint rule - language options > format/dprint (language options) > invalid > Invalid #0: [foo]
+a=1 1`] = `
+"[foo]
+a = 1
+"
+`;
+
+exports[`dprint rule - markdown formatting > format/dprint (markdown) > invalid > Invalid #0: #Title   1`] = `
+"#Title
+"
+`;
+
+exports[`integration tests - dprint complex TOML > format/dprint (complex toml) > invalid > Invalid #0: [section]
+key="value"   1`] = `
+"[section]
+key = "value"
+"
+`;
+
+exports[`integration tests - dprint markdown custom > format/dprint (markdown custom) > invalid > Invalid #0: #Header 1`] = `
+"#Header
+"
+`;
+
+exports[`integration tests - prettier complex CSS > format/prettier (complex css) > invalid > Invalid #0: .btn{padding:10px;margin:5px;} 1`] = `
+".btn {
+  padding: 10px;
+  margin: 5px;
+}
+"
+`;
+
+exports[`integration tests - prettier tabWidth > format/prettier (tab width) > invalid > Invalid #0: .foo{padding:10px;} 1`] = `
+".foo {
+    padding: 10px;
+}
+"
+`;
+
+exports[`integration tests - trailing whitespace > format/prettier (trailing whitespace) > invalid > Invalid #0: const x = 1;  
+ 1`] = `
+"const x = 1;
+"
+`;
+
+exports[`prettier rule - CSS formatting > format/prettier (css) > invalid > Invalid #0: .foo{color:red;} 1`] = `
+".foo {
+  color: red;
+}
+"
+`;
+
+exports[`prettier rule - JSON formatting > format/prettier (json) > invalid > Invalid #0: {"a":1,"b":2} 1`] = `
+"{ "a": 1, "b": 2 }
+"
+`;
+
+exports[`prettier rule - JavaScript formatting > format/prettier (javascript) > invalid > Invalid #0: const x=1; 1`] = `
+"const x = 1
+"
+`;
+
+exports[`prettier rule - JavaScript formatting > format/prettier (javascript) > invalid > Invalid #1: const obj={a:1,b:2} 1`] = `
+"const obj = { a: 1, b: 2 }
+"
+`;
+
+exports[`prettier rule - custom options > format/prettier (custom options) > invalid > Invalid #0: const x = 1 1`] = `
+"const x = 1;
+"
+`;

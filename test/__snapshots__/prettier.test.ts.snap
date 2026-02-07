@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prettier rule - CSS formatting > format/prettier (css) > invalid > Invalid #0: .foo{color:red;} 1`] = `
+".foo {
+  color: red;
+}
+"
+`;
+
+exports[`prettier rule - JSON formatting > format/prettier (json) > invalid > Invalid #0: {"a":1,"b":2} 1`] = `
+"{ "a": 1, "b": 2 }
+"
+`;
+
+exports[`prettier rule - JavaScript formatting > format/prettier (javascript) > invalid > Invalid #0: const x=1; 1`] = `
+"const x = 1
+"
+`;
+
+exports[`prettier rule - JavaScript formatting > format/prettier (javascript) > invalid > Invalid #1: const obj={a:1,b:2} 1`] = `
+"const obj = { a: 1, b: 2 }
+"
+`;
+
+exports[`prettier rule - custom options > format/prettier (custom options) > invalid > Invalid #0: const x = 1 1`] = `
+"const x = 1;
+"
+`;

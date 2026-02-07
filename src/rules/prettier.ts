@@ -21,9 +21,9 @@ export default {
         properties: {
           parser: {
             type: 'string',
-            required: true,
           },
         },
+        required: ['parser'],
         additionalProperties: true,
       },
     ],
