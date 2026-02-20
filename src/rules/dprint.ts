@@ -12,7 +12,6 @@ export default {
     type: 'layout',
     docs: {
       description: 'Use dprint to format code',
-      category: 'Stylistic',
     },
     fixable: 'whitespace',
     schema: [
