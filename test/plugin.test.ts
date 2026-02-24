@@ -6,6 +6,7 @@ describe('plugin exports', () => {
     expect(plugin.rules).toBeDefined()
     expect(plugin.rules.prettier).toBeDefined()
     expect(plugin.rules.dprint).toBeDefined()
+    expect(plugin.rules.oxfmt).toBeDefined()
   })
 
   it('should export parserPlain', () => {
@@ -26,6 +27,16 @@ describe('prettier rule meta', () => {
 describe('dprint rule meta', () => {
   it('should have correct meta', () => {
     const rule = plugin.rules.dprint
+    expect(rule.meta).toBeDefined()
+    expect(rule.meta?.type).toBe('layout')
+    expect(rule.meta?.fixable).toBe('whitespace')
+    expect(rule.meta?.schema).toBeDefined()
+  })
+})
+
+describe('oxfmt rule meta', () => {
+  it('should have correct meta', () => {
+    const rule = plugin.rules.oxfmt
     expect(rule.meta).toBeDefined()
     expect(rule.meta?.type).toBe('layout')
     expect(rule.meta?.fixable).toBe('whitespace')

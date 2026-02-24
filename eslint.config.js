@@ -28,4 +28,16 @@ export default antfu(
       'format/dprint': ['error', { language: 'toml' }],
     },
   },
+  {
+    files: ['**/*.graphql'],
+    languageOptions: {
+      parser: format.parserPlain,
+    },
+    plugins: {
+      format,
+    },
+    rules: {
+      'format/oxfmt': 'error',
+    },
+  },
 )

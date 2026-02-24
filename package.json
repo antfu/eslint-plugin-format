@@ -18,7 +18,8 @@
     "eslint-plugin",
     "formatters",
     "prettier",
-    "dprint"
+    "dprint",
+    "oxfmt"
   ],
   "sideEffects": false,
   "exports": {
@@ -71,6 +72,7 @@
     "eslint-formatting-reporter": "^0.0.0",
     "eslint-parser-plain": "^0.1.1",
     "ohash": "^2.0.11",
+    "oxfmt": "^0.35.0",
     "prettier": "^3.8.1",
     "synckit": "^0.11.12"
   },

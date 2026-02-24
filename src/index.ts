@@ -1,6 +1,7 @@
 import type { ESLint, Linter } from 'eslint'
 import * as parserPlain from 'eslint-parser-plain'
 import dprint from './rules/dprint'
+import oxfmt from './rules/oxfmt'
 import prettier from './rules/prettier'
 
 export interface ESLintPluginFormat extends ESLint.Plugin {
@@ -12,5 +13,6 @@ export default {
   rules: {
     prettier,
     dprint,
+    oxfmt,
   },
 } satisfies ESLintPluginFormat

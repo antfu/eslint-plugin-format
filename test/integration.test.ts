@@ -156,6 +156,43 @@ describe('integration tests - dprint markdown custom', () => {
   })
 })
 
+describe('integration tests - oxfmt Tailwind CSS class sorting', () => {
+  const valids = [
+    {
+      code: 'const div = <div class="p-4 pt-2">Hello</div>;\n',
+      filename: 'sample.tsx',
+      options: [{
+        sortTailwindcss: {},
+      }],
+    },
+  ] satisfies TestCasesOptions['valid']
+
+  const invalids = [
+    {
+      code: 'const div = <div class="pt-2 p-4">Hello</div>;\n',
+      filename: 'sample.tsx',
+      options: [{
+        sortTailwindcss: {},
+      }],
+      errors: [{ messageId: 'replace' }],
+    },
+  ] satisfies TestCasesOptions['invalid']
+
+  run({
+    name: 'format/oxfmt (Tailwind CSS class sorting)',
+    rule: plugin.rules.oxfmt,
+    languageOptions: {
+      parser: plugin.parserPlain,
+    },
+    valid: valids,
+    invalid: invalids,
+    onResult(_case, result) {
+      if (_case.type === 'invalid')
+        expect(result.output).toMatchSnapshot()
+    },
+  })
+})
+
 describe('integration tests - trailing whitespace', () => {
   // Properly formatted without trailing whitespace
   const valids = [

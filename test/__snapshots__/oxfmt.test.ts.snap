@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`oxfmt rule - JavaScript formatting > format/oxfmt (javascript) > invalid > Invalid #0: const value={foo:1,bar:2} 1`] = `
+"const value = { foo: 1, bar: 2 };
+"
+`;
+
+exports[`oxfmt rule - TypeScript formatting > format/oxfmt (typescript) > invalid > Invalid #0: const user={name:"foo"} 1`] = `
+"const user = { name: 'foo' };
+"
+`;
