@@ -28,7 +28,6 @@ export default {
     type: 'layout',
     docs: {
       description: 'Use oxfmt to format code',
-      category: 'Stylistic',
     },
     fixable: 'whitespace',
     schema: [
