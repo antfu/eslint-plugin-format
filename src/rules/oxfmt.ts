@@ -1,27 +1,11 @@
 import type { Rule } from 'eslint'
-import type { FormatOptions } from 'oxfmt'
+import type { FormatOptions, format as oxformat } from 'oxfmt'
 import { join } from 'node:path'
 import { messages, reportDifferences } from 'eslint-formatting-reporter'
 import { createSyncFn } from 'synckit'
 import { dirWorkers } from '../dir'
 
-interface OxfmtErrorLabel {
-  message: string | null
-  start: number
-  end: number
-}
-
-interface OxfmtError {
-  message: string
-  labels: OxfmtErrorLabel[]
-}
-
-interface OxfmtFormatResult {
-  code: string
-  errors: OxfmtError[]
-}
-
-let format: (filename: string, code: string, options: FormatOptions) => OxfmtFormatResult
+let format: (filename: string, code: string, options: FormatOptions) => Awaited<ReturnType<typeof oxformat>>
 
 export default {
   meta: {
@@ -55,29 +39,13 @@ export default {
 
           if (errors.length) {
             const error = errors[0]
-            const label = error.labels?.[0]
 
-            if (label) {
-              const startIndex = Math.max(0, Math.min(label.start, sourceCode.length))
-              const endIndex = Math.max(startIndex, Math.min(label.end, sourceCode.length))
-              context.report({
-                loc: {
-                  start: context.sourceCode.getLocFromIndex(startIndex),
-                  end: context.sourceCode.getLocFromIndex(endIndex),
-                },
-                message: `Failed to format the code: ${error.message}`,
-              })
+            if (error.message.startsWith('Unsupported file type:')) {
               return
             }
-
-            context.report({
-              loc: {
-                start: { line: 1, column: 0 },
-                end: { line: 1, column: 0 },
-              },
-              message: `Failed to format the code: ${error.message}`,
-            })
-            return
+            else {
+              throw new Error(error.message)
+            }
           }
 
           reportDifferences(context, sourceCode, formatted)

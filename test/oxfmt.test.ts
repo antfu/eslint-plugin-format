@@ -75,14 +75,13 @@ describe('oxfmt rule - TypeScript formatting', () => {
 
 describe('oxfmt rule - unsupported file type', () => {
   // Unsupported file extensions should report formatter errors
-  const invalids = [
+  const valids = [
     {
       code: 'hello world',
       filename: 'test.txt',
       options: [{}],
-      errors: 1,
     },
-  ] satisfies TestCasesOptions['invalid']
+  ] satisfies TestCasesOptions['valid']
 
   run({
     name: 'format/oxfmt (unsupported file type)',
@@ -90,8 +89,8 @@ describe('oxfmt rule - unsupported file type', () => {
     languageOptions: {
       parser: plugin.parserPlain,
     },
-    valid: [],
-    invalid: invalids,
+    valid: valids,
+    invalid: [],
   })
 })
 
