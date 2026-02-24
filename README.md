@@ -55,7 +55,7 @@ export default [
     },
   },
 
-  // use oxfmt to format JavaScript/TypeScript
+  // use oxfmt to format JavaScript/TypeScript with TailwindCSS classnames sorting
   {
     files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     languageOptions: {
@@ -65,7 +65,7 @@ export default [
       format,
     },
     rules: {
-      'format/oxfmt': ['error', { singleQuote: true, printWidth: 100 }],
+      'format/oxfmt': ['error', { sortTailwindcss: {} }],
     },
   },
 
