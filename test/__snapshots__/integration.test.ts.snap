@@ -12,6 +12,12 @@ exports[`integration tests - dprint markdown custom > format/dprint (markdown cu
 "
 `;
 
+exports[`integration tests - oxfmt Tailwind CSS class sorting > format/oxfmt (Tailwind CSS class sorting) > invalid > Invalid #0: const div = <div class="pt-2 p-4">Hello</div>;
+ 1`] = `
+"const div = <div class="p-4 pt-2">Hello</div>;
+"
+`;
+
 exports[`integration tests - prettier complex CSS > format/prettier (complex css) > invalid > Invalid #0: .btn{padding:10px;margin:5px;} 1`] = `
 ".btn {
   padding: 10px;

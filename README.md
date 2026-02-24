@@ -6,7 +6,7 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Format various languages with formatters in ESLint. Supports [Prettier](https://prettier.io/) and [dprint](https://dprint.dev/). Side-effects-free and fully configurable.
+Format various languages with formatters in ESLint. Supports [Prettier](https://prettier.io/), [dprint](https://dprint.dev/) and [oxfmt](https://oxc.rs/docs/guide/usage/formatter). Side-effects-free and fully configurable.
 
 ## Usages
 
@@ -52,6 +52,20 @@ export default [
     },
     rules: {
       'format/dprint': ['error', { language: 'toml', languageOptions: { indentWidth: 2 } }],
+    },
+  },
+
+  // use oxfmt to format JavaScript/TypeScript
+  {
+    files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+    languageOptions: {
+      parser: format.parserPlain,
+    },
+    plugins: {
+      format,
+    },
+    rules: {
+      'format/oxfmt': ['error', { singleQuote: true, printWidth: 100 }],
     },
   },
 
@@ -112,6 +126,15 @@ Either:
 Or:
 - `plugins` (required) - Array of plugins, defined as an object containing `plugin` (same as `language` above) and `options`, which is the same as `languageOptions` above.
 - The rest of the options are passed as dprint's general options
+
+### `format/oxfmt`
+
+Use oxfmt to format files.
+
+#### Options
+
+- File type is inferred from the linted filename extension.
+- The options are passed directly to oxfmt's [`format()` API](https://oxc.rs/docs/guide/usage/formatter).
 
 ## Sponsors
 
